@@ -1,0 +1,60 @@
+<html> 
+<body> 
+
+<style>
+.my-button {
+  background-color: #5dcc87; /* Green background */
+  color: white;             /* White text */
+  padding: 15px 32px;       /* Some padding */
+  text-align: center;       /* Center the text */
+  text-decoration: none;    /* Remove underline */
+  display: inline-block;    /* Get a button that can be centered */
+  font-size: 16px;          /* Increase font size */
+  margin: 4px 2px;          /* Add some margin */
+  cursor: pointer;          /* Change mouse cursor to a hand */
+  border: none;             /* Remove default border */
+  border-radius: 8px;       /* Rounded corners */
+}
+
+.parent-container {
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+
+  {% if sandbox_name == 'prod' %} 
+  background-color: deepskyblue;
+  {% endif %}  
+}
+</style>
+
+<div class="parent-container">
+  <div class="centered-div">
+    {% if sandbox_name == 'prod' %} 
+        <p style="font-size:40px;font-family: Tahoma;font-weight: bold;color: rgb(9, 87, 139);">Production Environment</p>
+    {% elif sandbox_name == 'dev-development-krungsri' %}
+        <p style="font-size:24px;font-family: Tahoma;font-weight: bold;color: rgb(230, 138, 19);">Dev Development (Krungsri)</p>
+    {% endif %}
+    
+    {% if is_vpn == True %} 
+        <p style="font-size:24px;font-family: Tahoma;font-weight: bold;color: forestgreen;">BAY VPN Connected</p>
+    {% else %}
+        <p style="font-size:24px;font-family: Tahoma;font-weight: bold;color: rgb(204, 10, 10);">BAY VPN Not Connect</p>
+    {% endif %}
+
+  </div>
+
+  <div class="navigator-div">
+    <tr>    
+        <td>
+            <button onclick="window.open('{{ url_for('source_list_all_files')}}', '_blank');" class="my-button">Source list all files</button>
+        </td>        
+    </tr>
+    <tr>    
+        <td>
+            <button onclick="window.open('{{ url_for('destination_list_all_files')}}', '_blank');" class="my-button">Destination list all files</button>
+        </td>        
+    </tr>
+  </div>
+</div>
+        
+</body> 
+</html> 

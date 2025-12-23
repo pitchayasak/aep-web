@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+    td {font-size: 14px;}
+    </style>
+    <center>
+    {% if sandbox_name == 'prod' %} 
+    <p style="font-size:64px;font-family: Tahoma;font-weight: bold;color: rgb(9, 87, 139);">Production Environment</p>
+    {% elif sandbox_name == 'dev-development-krungsri' %}
+    <p style="font-size:64px;font-family: Tahoma;font-weight: bold;color: rgb(230, 138, 19);">Dev Development (Krungsri)</p>
+    {% endif %}
+    </center>
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <hr>
+      {% block content %}{% endblock %}
+    </div>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

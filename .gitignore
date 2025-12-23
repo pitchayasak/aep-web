@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# AEP API Key
+aep-api.json
+
 # C extensions
 *.so
 

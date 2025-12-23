@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Creatime Time</th>
+        <th>Last Modified</th>
+        <th>Size (MBytes)</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/{{ dlz_type }}_list_all_files',
+        columns: [
+          {data: 'name'},
+          {data: 'creation_time', searchable: false},
+          {data: 'last_modified', searchable: false},
+          {data: 'size', searchable: false}
+        ],
+      });
+    });
+  </script>
+{% endblock %}

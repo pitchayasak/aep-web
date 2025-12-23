@@ -1,0 +1,34 @@
+<html> 
+<body> 
+
+<style>
+.parent-container {
+  display: grid;
+  place-items: center; /* Centers both horizontally and vertically */
+}
+</style>
+
+<div class="parent-container">
+  <div class="centered-div">
+    <form action = "/setenv" method = "POST"> 
+        <p><h3>กำหนดค่าที่ต้องการ</h3></p> 
+        <p>
+            <input type="checkbox" id="VPN" name="VPN" value="y">
+            <label for="VPN">Connected into BAY VPN</label>
+        </p>
+        <p>
+            <label for="sandbox">Choose Sandbox:</label>
+
+            <select id="sandbox" name="sandbox">
+                <option value="prod">Prod</option>
+                <option value="dev-development-krungsri">Dev Devlopment (Krungsri)</option>
+            </select>
+        </p>
+        <p><input type = 'submit' value = 'ตกลง'/></p> 
+    </form> 
+
+  </div>
+</div>
+        
+</body> 
+</html> 
